@@ -16,10 +16,6 @@ for (let f in files) {
 
   if (r.name == 'main') r.name = '/';
 
-  r.name = r.name
-    .replace('public/','')
-    .replace('private/','')
-
   routes.push(r);
 }
 
