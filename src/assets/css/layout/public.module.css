@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: fixed;
+  z-index: 1;
+  top: 10vh;
+  color: white;
+  background-color: green;
+}
