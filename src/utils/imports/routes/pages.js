@@ -48,7 +48,8 @@ const Files = async (path) => {
   if (!page) return { error: 'PAGE_NOT_FOUND' }
 
   let style = Object.keys(styles)
-  .find((r) => [path, '/private'+path].includes(String(r).toLowerCase().replace('../../../assets/css/views','').split('.')[0]));
+    .find((r) => [path, '/private'+path].includes(String(r).toLowerCase().replace('../../../assets/css/views','').split('.')[0]));
+  console.log([path, '/private'+path])
 
   return {
     page: (await pages[page]()).default,

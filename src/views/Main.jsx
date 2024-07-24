@@ -1,15 +1,7 @@
-import { Images } from '../utils/imports'
+import { Images as img } from '../utils/imports'
 
-// Exemplo de como importar imagens
-const img = Images([
-  "imagem.png", // Exemplo de como importar uma imagem (Diretório: /src/assets/img/imagem.png)
-  "pasta/image.png", // Exemplo de como importar uma imagem dentro de outra pasta (Diretório: /src/assets/img/pasta)
-  "pasta/image", // Pode passar uma imagem sem passar a extensão (EX: .png, .jpg, .gif)
-
-  "logos/icons/github", // Exemplo de uma imagem REAL (Diretório: /src/assets/img/logos/icons/github.png)
-]);
-
-const Page = () => {
+// O CSS da pagina é importado automático
+const Page = ({ style }) => {
   return (
     <div>
       {/* Exemplo de como utilizar uma imagem importada */}
@@ -18,6 +10,5 @@ const Page = () => {
     </div>
   )
 }
-
 
 export default Page;
