@@ -19,8 +19,8 @@ const Import = () => {
       setReady(false);
 
       let file = await Files(location.pathname);
-      console.log(file)
       if (file.error) return navigate('/');
+      if (file.style.error) console.log(file);
 
       Page = file.page;
       Style = file.style;
@@ -49,7 +49,6 @@ const Files = async (path) => {
 
   let style = Object.keys(styles)
     .find((r) => [path, '/private'+path].includes(String(r).toLowerCase().replace('../../../assets/css/views','').split('.')[0]));
-  console.log([path, '/private'+path])
 
   return {
     page: (await pages[page]()).default,
