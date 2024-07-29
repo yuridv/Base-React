@@ -20,10 +20,10 @@ const Import = () => {
 
       let file = await Files(location.pathname);
       if (file.error) return navigate('/');
-      if (file.style.error) console.log(file);
+      if (file.style.error) console.log(file.style.error);
 
       Page = file.page;
-      Style = file.style;
+      Style = file.style || {};
 
       setReady(true);
       setLoad(false);

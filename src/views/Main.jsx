@@ -5,7 +5,8 @@ const Page = ({ style }) => {
   return (
     <div>
       {/* Exemplo de como importar um componente */}
-      <Components.Navbar />
+      {/* < Components.Navbar /> */}
+      { Components.Bar.Navbar }
 
       {/* Exemplo de como importar uma imagem */}
       <img src={ img.logos.icons.github } />

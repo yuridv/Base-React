@@ -1,13 +1,12 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
+
+import Page from '../functions/Pages'
 
 const files = import.meta.glob('../../components/**/**/**/**/**/**/**/*');
-let names = Object.keys(files);
-
-const css = import.meta.glob('../../assets/css/**/**/**/**/**/**/**/*');
-console.log(css)
+const styles = import.meta.glob('../../assets/css/components/**/**/**/**/**/**/*');
 
 let result = {};
-for (let f of names) {
+for (let f of Object.keys(files)) {
   let parts = String(f).replace('../../components/','').split('/');
   let last = parts.pop();
   let pointer = result;
@@ -17,16 +16,16 @@ for (let f of names) {
     pointer = pointer[p];
   }
 
+  let Component = lazy(files[f]);
 
-  pointer[last.split('.')[0]] = lazy(files[f]);
+  let css = Object.keys(styles)
+    .find((r) => (f.replace('../../components/','').toLowerCase().split('.')[0]).includes(String(r).toLowerCase().replace('../../assets/css/components/','').split('.')[0]));
 
-  // console.log(css[f.replace('../../','../../assets/css/').replace('.jsx','.module.css').toLowerCase()]);
-  // let LazyComponent = lazy(files[f]);
-  // pointer[last.split('.')[0]] = () => (
-  //   <Suspense fallback={<div>Loading...</div>}>
-  //     <LazyComponent style='123' />
-  //   </Suspense>
-  // );
+  Object.assign(pointer, {
+    get [last.split('.')[0]]() {
+      return <Page Component={ Component } CSS={ styles[css] } />
+    },
+  });
 }
 
 export default result;

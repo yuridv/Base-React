@@ -5,7 +5,8 @@ const Page = ({ style }) => {
   return (
     <div className={ style.container }>
       {/* Exemplo de como importar um componente */}
-      <Components.Sidebar />
+      {/* <Components.Sidebar /> */}
+      { Components.Bar.Sidebar }
 
       {/* Exemplo de como importar uma imagem */}
       <img src={ img.logos.github } />
