@@ -5,7 +5,7 @@ import style from '../Assets/CSS/Layouts/Public.module.css'
 const Layout = ({ element }) => {
   return (
     <>
-      <h1>PUBLIC LAYOUT</h1>
+      <Components.Navbars.Top />
       { element }
     </>
   )

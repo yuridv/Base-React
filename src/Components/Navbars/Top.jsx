@@ -4,8 +4,8 @@ import { Images, Components } from '../../Utils/Imports'
 const Page = ({ style }) => {
   return (
     <div className={ style.container }>
-      <p className={ style.text }>Top Navbar</p>
-    </div> 
+      <p className={ style.title }>STAR</p>
+    </div>
   )
 }
 

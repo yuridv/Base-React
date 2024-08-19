@@ -1,7 +1,15 @@
-.color_text {
-  color: blue
+.header_container {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../../Assets/Images/stars-background.gif"), url("../../../Assets/Images/background.png") center center; 
+  -moz-background-size: auto, cover;
+  -o-background-size: auto, cover;
+  background-size: auto, cover;
 }
 
-.image_logo {
-  width: 30vw;
+img { 
+  height: 85%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
