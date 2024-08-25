@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Sansita%20Swashed');
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+
+@font-face { 
+  font-family: 'jelly'; 
+  src: url('../../../Fonts/jelly.ttf') 
+}
+
 .header_container {
   width: 100vw;
   height: 100vh;
@@ -5,11 +13,73 @@
   -moz-background-size: auto, cover;
   -o-background-size: auto, cover;
   background-size: auto, cover;
+  display: flex;
+  flex-direction: row;
 }
 
-img { 
+.header_text {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_text > a:nth-child(1) {
+  margin-top: 5vh;
+  font-family: 'Sansita Swashed', sans-serif;
+  color: black;
+  font-size: 6.5vh;
+  font-weight: 600;
+  text-shadow: 0.2vw 0.2vw 0.4vw rgb(255, 0, 180);
+}
+.header_title {
+  display: flex;
+  flex-direction: row;
+  text-shadow: 0.2vw 0.2vw 0.5vw rgb(255, 0, 180);
+}
+.header_title > a:nth-child(1) {
+  font-family: 'jelly', sans-serif;
+  color: black;
+  font-size: 12vh;
+  font-weight: 600;
+}
+.header_title > a:nth-child(2) {
+  font-family: 'Sansita Swashed', sans-serif;
+  color: black;
+  font-size: 3vh;
+  font-weight: 600;
+  margin-top: 1.3vh;
+  margin-left: 0.6vw
+}
+.header_text > a:nth-child(3) {
+  font-family: 'Yellowtail', sans-serif;
+  color: white;
+  font-size: 4.5vh;
+  text-shadow: 0.2vw 0.2vw 0.4vw rgb(255, 0, 180);
+}
+
+
+.header_person {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.header_person > img {
   height: 85%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  margin-right: 3vw;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  gap: 1vw;
 }
