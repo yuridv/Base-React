@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { Route, Navigate } from 'react-router-dom'
 
-import { Load } from '../Functions'
+import Load from '../Functions/Load'
 
 const Files = import.meta.glob('../../Views/**/**/**/**/**/**/*');
 const Styles = import.meta.glob('../../Assets/CSS/Views/**/**/**/**/**/**/*');
