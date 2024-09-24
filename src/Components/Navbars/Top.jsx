@@ -1,7 +1,11 @@
 import { Images, Components } from '../../Utils/Imports'
 
+import { AuthContext } from '../../Contexts/Authenticate'
+
 // O CSS do componente é importado automático
 const Page = ({ style }) => {
+  const { isAuthenticated } = AuthContext();
+
   return (
     <div className={ style.container }>
       <div className={ style.left }>

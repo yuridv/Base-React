@@ -1,23 +1,20 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+
 import Request from '../Utils/Functions/Request'
 
 const Context = createContext();
 
 const AuthProvider = ({ children }) => {
-  console.log(process.env.API_URL + '/auth/discord')
   let [ login, setLogin ] = useState();
 
-  useEffect(() => isAuthenticate, []);
+  const isAuthenticated = () => Request(process.env.API_URL + '/auth/verify', { method: 'GET' })
+    .then((r) => { setLogin(r); return true })
+    .catch((e) => { setLogin(); return false })
 
-  const isAuthenticate = async () => {
-    console.log('isAuthenticate')
-    return Request(process.env.API_URL + '/auth/discord', { method: 'GET' })
-      .then((r) => console.log(r))
-      .catch((e) => e)
-  }
+  useEffect(() => { isAuthenticated() }, []);
 
   return (
-    <Context.Provider value={{ login, isAuthenticate }}>
+    <Context.Provider value={{ login, isAuthenticated }}>
       { children }
     </Context.Provider>
   )
