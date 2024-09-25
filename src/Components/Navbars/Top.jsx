@@ -4,7 +4,7 @@ import { AuthContext } from '../../Contexts/Authenticate'
 
 // O CSS do componente é importado automático
 const Page = ({ style }) => {
-  const { isAuthenticated } = AuthContext();
+  const { user, Login, Logout } = AuthContext();
 
   return (
     <div className={ style.container }>
@@ -25,7 +25,7 @@ const Page = ({ style }) => {
         <div className={ style.items + ' ' + style.icons }>
           <a><i className="fa-solid fa-moon" /></a>
           <div className={ style.separator } />
-          <a><i className="fa-duotone fa-user-astronaut" /></a>
+          <a onClick={ Login }><i className="fa-duotone fa-user-astronaut" /></a>
         </div>
       </div>
     </div>

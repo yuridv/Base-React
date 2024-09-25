@@ -1,4 +1,4 @@
-import { Images, Components } from '../Utils/Imports'
+import { Components } from '../Utils/Imports'
 
 import style from '../Assets/CSS/Layouts/Public.module.css'
 

@@ -1,22 +1,43 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
 import Request from '../Utils/Functions/Request'
+import Loading from '../Components/Loading';
 
 const Context = createContext();
 
 const AuthProvider = ({ children }) => {
-  let [ login, setLogin ] = useState();
+  let [ loaded, setLoaded ] = useState();
+  let [ user, setUser ] = useState();
+
+  const Login = () => window.location.href = process.env.API_URL + '/auth/discord';
+
+  const Logout = () => Request(process.env.API_URL + '/auth/logout', { method: 'DELETE' })
+    .then((r) => window.location.href = '/')
+    .catch((e) => setUser());
 
   const isAuthenticated = () => Request(process.env.API_URL + '/auth/verify', { method: 'GET' })
-    .then((r) => { setLogin(r); return true })
-    .catch((e) => { setLogin(); return false })
+    .then((r) => setUser(r))
+    .catch((e) => setUser());
 
-  useEffect(() => { isAuthenticated() }, []);
+  useEffect(() => {
+    (async () => {
+      await isAuthenticated();
+      setLoaded(true);
+    })();
+  }, []);
 
   return (
-    <Context.Provider value={{ login, isAuthenticated }}>
-      { children }
-    </Context.Provider>
+    <>
+      {
+        loaded ? (
+          <Context.Provider value={{ user, Login, Logout, isAuthenticated }}>
+            { children }
+          </Context.Provider>
+        ) : (
+          <Loading />
+        )
+      }
+    </>
   )
 }
 
